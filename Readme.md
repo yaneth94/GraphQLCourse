@@ -1,6 +1,14 @@
 ## 🚀 Graphql Course
 
-1.  **Execute comand **
-    ```shell
+**Execute comand into hello-world **
+
+```shell
     node index.js
-    ```
+```
+
+**Execute comand into crud-graphql**
+
+```shell
+    npm start
+    npm run start
+```
