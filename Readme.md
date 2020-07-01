@@ -1,12 +1,12 @@
 ## 🚀 Graphql Course
 
-**Execute comand into hello-world **
+**Execute comand inside hello-world**
 
 ```shell
     node index.js
 ```
 
-**Execute comand into crud-graphql**
+**Execute comand inside crud-graphql**
 
 ```shell
     npm start
