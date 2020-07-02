@@ -5,9 +5,43 @@ mutation{
   }
 }
 
+mutation{
+  updateCourse(id: "2",title:"Curso de Javascript v2",views: 2000){
+    title
+  }
+}
+
+mutation{
+  addCourse(input:{title:"Curso de Node", views: 10000}){
+    title
+    id
+  }
+}
+
+mutation{
+  updateCourse(id: "7",input:{title:"Curso de Node v2", views: 10000}){
+    title
+    id
+  }
+}
+
+mutation{
+  deleteCourse(id:"2"){
+    message
+  }
+}
+
+
+
 query {
   getCourses{
     title
     id
+  }
+}
+
+{
+  getCourses(page:0, limit:2){
+    title
   }
 }

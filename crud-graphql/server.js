@@ -14,30 +14,61 @@ const schema = buildSchema(`
         views: Int
     }
 
+    input CourseInput{
+        title: String!
+        views: Int
+    }
+
+    type Alert{
+        message: String
+    }
+
     type Query{
-        getCourses: [Course] 
+        getCourses(page: Int, limit: Int = 1): [Course]
         getCourse(id: ID!) : Course
     }
 
     type Mutation {
-        addCourse(title:String!,views:Int): Course
+        addCourse(input: CourseInput): Course
+        updateCourse(id:ID!,input: CourseInput): Course
+        deleteCourse(id: ID!):Alert
     }
 
 `);
 
 const root = {
-    getCourses() {
+    getCourses({ page, limit }) {
+        if (page !== undefined) {
+            return courses.slice((page - 1) * limit, page * limit);
+        }
         return courses;
     },
     getCourse({ id }) {
         console.log(id);
         return courses.find((course) => id == course.id);
     },
-    addCourse({ title, views }) {
+    addCourse({ input }) {
+        // const { title, views } = input;
         const id = String(courses.length + 1);
-        const course = { id, title, views };
+        const course = { id, ...input };
         courses.push(course);
         return course;
+    },
+    updateCourse({ id, input }) {
+        //const { title, views } = input;
+        const courseIndex = courses.findIndex((course) => id === course.id);
+        const course = courses[courseIndex];
+
+        const newCourse = Object.assign(course, input);
+        course[courseIndex] = newCourse;
+
+        return newCourse;
+    },
+    deleteCourse({ id }) {
+        courses = courses.filter((course) => course.id != id);
+        return {
+            message: `El curso con id ${id} fue eliminado`,
+        };
     },
 };
 
