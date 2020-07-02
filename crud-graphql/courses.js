@@ -1,8 +1,8 @@
 module.exports = [
-    { id: "1", titulo: "Curso de GraphQL", vistas: 1000 },
-    { id: "2", titulo: "Curso de JavaScript", vistas: 50000 },
-    { id: "2", titulo: "Curso de JavaScript 1", vistas: 50000 },
-    { id: "2", titulo: "Curso de JavaScript 2", vistas: 50000 },
-    { id: "2", titulo: "Curso de JavaScript 3", vistas: 50000 },
-    { id: "2", titulo: "Curso de JavaScript 4", vistas: 50000 },
+    { id: "1", title: "Curso de GraphQL", views: 1000 },
+    { id: "2", title: "Curso de JavaScript", views: 50000 },
+    { id: "2", title: "Curso de JavaScript 1", views: 50000 },
+    { id: "2", title: "Curso de JavaScript 2", views: 50000 },
+    { id: "2", title: "Curso de JavaScript 3", views: 50000 },
+    { id: "2", title: "Curso de JavaScript 4", views: 50000 },
 ];
