@@ -63,7 +63,6 @@ const resolvers = {
         },
         deleteCourse(obj, { id }) {
             courses = courses.filter((course) => course.id != id);
-            console.log(id)
             return {
                 message: `El curso con id ${id} fue eliminado`,
             };
