@@ -1,0 +1,13 @@
+mutation{
+  addCourse(title:"Curso de Node", views: 10000){
+    title
+    id
+  }
+}
+
+query {
+  getCourses{
+    title
+    id
+  }
+}
