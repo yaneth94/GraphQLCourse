@@ -1,0 +1,11 @@
+db.getName()
+saber el nombre de la base 
+
+show databases
+mostrar todas las bases 
+
+use nombre_base 
+crear una
+
+show collections 
+ver todas las colecciones
