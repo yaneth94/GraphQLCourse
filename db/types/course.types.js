@@ -3,6 +3,7 @@ module.exports = `
         id: ID!
         title: String!
         views: Int
+        user: User
     }
 
     input CourseInput{
@@ -17,7 +18,7 @@ module.exports = `
     }
 
     extend type Mutation {
-        addCourse(input: CourseInput): Course
+        addCourse(input: CourseInput,user: ID!): Course
         updateCourse(id: ID!, input: CourseInput): Course
         deleteCourse(id: ID!): Alert
     }

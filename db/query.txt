@@ -1,0 +1,51 @@
+User
+{
+  getUsers{
+    email
+  }
+}
+
+mutation{
+  signUp(input:{email: "zoila@gmail.com",password: "123456"}){
+    email
+  }
+}
+
+mutation{
+  signUp(input:{email: "dayana@gmail.com",password: "123456"}){
+    email
+  }
+}
+
+{
+  getUsers{
+    email
+    courses {
+      title
+      views
+    }
+  }
+}
+
+Course
+{
+  getCourses{
+    id
+    title
+  }
+}
+mutation{
+  addCourse(input:{title:"Curso de JS Moderno", views: 10000},user: "5f00aabf139ef10df8487975"){
+    title
+    id
+  }
+}
+{
+  getCourses{
+    id
+    title
+    user {
+      email
+    }
+  }
+}

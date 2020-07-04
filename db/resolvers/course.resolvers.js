@@ -1,8 +1,10 @@
 const Course = require("../models/course");
+const User = require("../models/user");
 module.exports = {
     Query: {
         async getCourses(obj, { page, limit }, context) {
             console.log(context);
+            //.populate("user")
             let courses = Course.find();
             if (page !== undefined) {
                 courses.limit(limit).skip((page - 1) * limit);
@@ -16,9 +18,17 @@ module.exports = {
         },
     },
     Mutation: {
-        async addCourse(obj, { input }) {
-            const course = new Course(input);
+        async addCourse(obj, { input, user }) {
+            //buscando al usuario
+            const userObj = await User.findById(user);
+
+            const course = new Course({...input, user });
             await course.save();
+
+            //estableciendo la relacion
+            userObj.courses.push(course);
+            await userObj.save();
+
             return course;
         },
         async updateCourse(obj, { id, input }) {
@@ -30,6 +40,11 @@ module.exports = {
             return {
                 message: `El curso con id ${id} fue eliminado`,
             };
+        },
+    },
+    Course: {
+        async user(c) {
+            return await User.findById(c.user);
         },
     },
 };
