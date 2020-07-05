@@ -27,6 +27,21 @@ mutation{
   }
 }
 
+mutation{
+  logIn(input:{email: "erick@gmail.com",password: "123456"}){
+    email
+    id
+  }
+}
+
+mutation{
+  logIn(input:{email:"erick@gmail.com",password: "123456"}){
+    email
+    id
+    token
+  }
+}
+
 Course
 {
   getCourses{

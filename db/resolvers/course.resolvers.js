@@ -18,7 +18,7 @@ module.exports = {
         },
     },
     Mutation: {
-        async addCourse(obj, { input, user }) {
+        async addCourse(obj, { input, user }, context) {
             //buscando al usuario
             const userObj = await User.findById(user);
 
